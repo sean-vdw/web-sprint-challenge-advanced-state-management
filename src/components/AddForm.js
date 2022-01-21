@@ -28,9 +28,9 @@ const AddForm = ({ error, dispatch }) => {
         } else {
             //dispatch an addSmurf action
             dispatch(addSmurf({ 
-                name: state.name, 
+                name: state.name,
+                position: state.position,  
                 nickname: state.nickname, 
-                position: state.position, 
                 description: state.description }));
         }
     }

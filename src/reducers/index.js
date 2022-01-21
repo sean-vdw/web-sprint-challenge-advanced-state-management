@@ -3,11 +3,11 @@ import { FETCH_START, FETCH_FAIL, FETCH_SUCCESS, ADD_SMURF } from '../actions';
 export const initialState = {
   smurfs: [
     {
-      id: Date.now(),
-      name: 'Poppa Smurf',
-      nickname: 'Pops',
-      position: 'Village Leader',
-      description: 'Papa is the practical village leader and the father figure of 100 or so young Smurfs. He is easily identified by his red Smurf hat, pants, and a shortly-trimmed white beard and moustache.'
+      id:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
+      name:'Poppa Smurf',
+      position:'Village Leader',
+      nickname:'Pops',
+      description:'Papa is the practical village leader and the father figure of 100 or so young Smurfs. He is easily identified by his red Smurf hat, pants, and a shortly-trimmed white beard and moustache.'
     }
   ],
   isLoading: false,
