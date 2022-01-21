@@ -3,6 +3,7 @@ import axios from 'axios';
 export const FETCH_START = "FETCH_START";
 export const FETCH_FAIL = "FETCH_FAIL";
 export const FETCH_SUCCESS = "FETCH_SUCCESS";
+export const ADD_SMURF = "ADD_SMURF";
 
 export const fetchStart = () => {
   return({type: FETCH_START});
@@ -14,6 +15,10 @@ export const fetchFail = (error) => {
 
 export const fetchSuccess = (smurf) => {
   return({type: FETCH_SUCCESS, payload: smurf});
+}
+
+export const addSmurf = (newSmurf) => {
+  return({type: ADD_SMURF, payload: newSmurf});
 }
 
 export const getSmurf = () => (dispatch) => {
