@@ -1,3 +1,4 @@
+import { FETCH_START, FETCH_FAIL, FETCH_SUCCESS } from '../actions';
 
 export const initialState = {
   smurfs: [],
