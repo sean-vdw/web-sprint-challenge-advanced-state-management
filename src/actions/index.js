@@ -5,7 +5,7 @@ export const FETCH_FAIL = "FETCH_FAIL";
 export const FETCH_SUCCESS = "FETCH_SUCCESS";
 export const ADD_SMURF = "ADD_SMURF";
 
-export const fetchStart = () => {
+export const fetchSmurfs = () => {
   return({type: FETCH_START});
 }
 
@@ -22,13 +22,26 @@ export const addSmurf = (newSmurf) => {
 }
 
 export const getSmurf = () => (dispatch) => {
-  dispatch(fetchStart());
+  dispatch(fetchSmurfs());
   axios.get('http://localhost:3333/smurfs')
     .then(resp => {
-      console.log(resp);
+      console.log("AXIOS GET ---", resp.data);
+      dispatch(fetchSuccess(resp.data));
     })
     .catch(err => {
       console.log(err);
+      dispatch(fetchFail(err));
+    })
+}
+
+export const getAddSmurf = (newSmurf) => (dispatch) => {
+  dispatch(addSmurf(newSmurf));
+  axios.post('http://localhost:3333/smurfs')
+    .then(resp => {
+      dispatch(fetchSmurfs(resp));
+    })
+    .catch(err => {
+      dispatch(fetchFail(err));
     })
 }
 

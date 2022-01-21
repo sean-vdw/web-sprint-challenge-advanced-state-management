@@ -4,13 +4,13 @@ export const initialState = {
   smurfs: [
     {
       id: Date.now(),
-      name: '',
-      nickname: '',
-      position: '',
-      summary: ''
+      name: 'Poppa Smurf',
+      nickname: 'Pops',
+      position: 'Village Leader',
+      description: 'Papa is the practical village leader and the father figure of 100 or so young Smurfs. He is easily identified by his red Smurf hat, pants, and a shortly-trimmed white beard and moustache.'
     }
   ],
-  loading: false,
+  isLoading: false,
   error: ''
 }
 
@@ -19,7 +19,7 @@ const reducer = (state = initialState, action) => {
     case FETCH_START:
       return {
         ...state,
-        loading: true
+        isLoading: true
       }
     case FETCH_FAIL: 
       return {
