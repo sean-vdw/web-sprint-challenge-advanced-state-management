@@ -1,9 +1,31 @@
 
 export const initialState = {
+  smurfs: [],
+  loading: false,
+  error: ''
 }
 
-const reducer = ()=>{
-}
+export const reducer = (state = initialState, action) => {
+  switch(action.type) {
+    case FETCH_START:
+      return {
+        ...state,
+        loading: true
+      }
+    case FETCH_FAIL: 
+      return {
+        ...state,
+        error: action.payload
+      }
+    case FETCH_SUCCESS:
+      return {
+        ...state,
+        smurfs: action.payload
+      }
+    default:
+      return state
+  };
+};
 
 //**************DO NOT EDIT ANY CODE BEYOND THIS POINT**************//
 export default reducer;
