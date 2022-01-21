@@ -113,8 +113,20 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 1. What problem does the context API help solve?
 
+  > Context API solves the problem of constant "prop drilling," which is not a scalable method of passing props and state between components. It can also be used very simply by using hooks in functional componentsm, and thus alleviates the need to go through longer and more complicated setups associated with Redux. This may be a more optimal choice for a developer if they are building a smaller application. 
+
 2. In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+  > Actions are plan javascript objects that have a required "type" and an optional "payload." These can be thought of as an event that describes something that happened in the application (action.type) and external data associated the action (payload).
+
+  > Reducers take our current state and action and return a new state as a result. These are also beneficial as they are not allowed to mutate the original or current state values. They make a copy.
+
+  > Store unites state, actions, and reducers in one location. This also means that we have a single source of truth as this provides the singular global state of our application. The Store is also read-only, meaning that the only way to alter state is through an action. This is the aspect of the Store that gives us the "truth," as we know the state contained in our store cannot be altered by accident and must be updated within our actions files.
 
 3. What does `redux-thunk` allow us to do? How does it change our `action-creators`?
 
+  > The Thunk middleware package allows us to run async operations in redux. Thunk is a term for a function that returns another function. This enables our action-creators to return both functions and action objects. These action creator functions dispatch actions themselves, giving us yet another way to manipulate our application and its data.
+
 4. What is your favorite state management system you've learned and this sprint? Please explain why!
+
+> I prefer using Redux with Thunk. The reason being is that I like to have parts of my code compartmentalized, and although there's a bit more effort on setup, the process setting up reducers, actions, and brining in state via mapStateToProps as different parts of state are needed is much more intuitive to me. I also don't need to worry about bugs or other issues that come along with Context API as something that is easier, but less scalable. 
