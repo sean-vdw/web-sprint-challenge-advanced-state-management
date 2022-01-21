@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import Smurf from './Smurf';
 
- const SmurfList = ({ smurfs, isLoading, error, dispatch})=> {
+ const SmurfList = ({ smurfs, isLoading, error })=> {
 
     if (isLoading) {
         return <h1>Loading...</h1>;
