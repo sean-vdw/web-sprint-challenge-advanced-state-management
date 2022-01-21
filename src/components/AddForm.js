@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 
 import { fetchFail, addSmurf } from '../actions';
 
-const AddForm = ({ smurfs, error, dispatch }) => {
+const AddForm = ({ error, dispatch }) => {
+    const [err, setErr] = useState('');
     const [state, setState] = useState({
         name:"",
         position:"",
@@ -20,10 +21,10 @@ const AddForm = ({ smurfs, error, dispatch }) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        console.log(e.target);
         if (state.name === "" || state.position === "" || state.nickname === "") {
             //dispatch a custom error action
-            dispatch(fetchFail(error));
+            setErr('Please enter a valid smurf name, position, and nickname.');
+            dispatch(fetchFail(err));
         } else {
             //dispatch an addSmurf action
             dispatch(addSmurf({ 
@@ -63,7 +64,6 @@ const AddForm = ({ smurfs, error, dispatch }) => {
 
 const mapStateToProps = state => {
     return {
-        smurfs: state.smurfs,
         error: state.error
     }
 }
